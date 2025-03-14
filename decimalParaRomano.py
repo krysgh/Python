@@ -38,17 +38,29 @@ def conversao(decimal):
         romano = romano - (int((romano/100))*100)
 
 
+    if(romano/50 >= 0.8 and romano/50 < 1):
+        operador += "XL"
+        romano = romano - 40
+        
+    else:    
+        operador += (int(romano/50) * 'L')
+        romano = romano - (int((romano/50))*50)
+
+    if(romano/10 >= 0.9 and romano/10 <1):
+        operador += "IX"
+        romano = romano - 9
      
-    operador += (int(romano/50) * 'L')
-    romano = romano - (int((romano/50))*50)
+    else:     
+        operador += (int(romano/10) * 'X')
+        romano = romano - (int((romano/10))*10)
 
-
-
-    operador += (int(romano/10) * 'X')
-    romano = romano - (int((romano/10))*10)
-
-    operador += (int(romano/5) * 'V')
-    romano = romano - (int((romano/5))*5)
+    if(romano/5 >= 0.8 and romano/5 < 1):
+        operador += "IV"
+        romano = romano - 4
+     
+    else:    
+        operador += (int(romano/5) * 'V')
+        romano = romano - (int((romano/5))*5)
 
     operador += (int(romano/1) * 'I')
     romano = romano - (int((romano/1))*1)
